@@ -1,0 +1,37 @@
+{
+  "name": "crazybooot/base64-validation",
+  "description": "Laravel validators for base64 encoded files",
+  "keywords": [
+    "base64",
+    "validation",
+    "files",
+    "encoded",
+    "images",
+    "download",
+    "laravel"
+  ],
+  "authors": [
+    {
+      "name": "crazybooot",
+      "email": "crazybooot@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": "^7.1",
+    "laravel/framework": "^5.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/",
+      "Crazybooot\\Base64Validation\\": "/src"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Crazybooot\\Base64Validation\\Providers\\ServiceProvider"
+      ]
+    }
+  }
+}
