@@ -35,8 +35,9 @@ public function rules(): array
 | base64between        | between (for file)    |
 | base64size           | size (for file)       |
 
+## License
 
-
+The MIT License (MIT). Please see [License File](LICENSE.MD) for more information.
 
 
 

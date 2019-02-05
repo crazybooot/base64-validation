@@ -16,6 +16,7 @@
       "email": "crazybooot@gmail.com"
     }
   ],
+  "license": "MIT",
   "minimum-stability": "dev",
   "require": {
     "php": "^7.1",
