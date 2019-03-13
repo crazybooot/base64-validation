@@ -64,7 +64,7 @@ class Base64Validator
     public function validateBase64Dimensions(string $attribute, $value, array $parameters, Validator $validator): bool
     {
         return !empty($value)
-            ? $validator->validateDimensions($attribute, $this->convertToFile($value), $parameters)
+            ? $this->validateDimensions($attribute, $this->convertToFile($value), $parameters)
             : true;
     }
 
