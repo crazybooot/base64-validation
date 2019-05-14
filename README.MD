@@ -35,6 +35,18 @@ public function rules(): array
 | base64between        | between (for file)    |
 | base64size           | size (for file)       |
 
+## Localization
+By default each base64 rule uses validation error message
+from its non base64 file rule equivalent, for example localization from 'validation.min.file'
+is used for base64min message.
+If you would like to have your own localization for base64 rules you can easy change default behaviour
+by publishing config
+```bash
+php artisan vendor:publish --provider="Crazybooot\Base64Validation\Providers\ServiceProvider" --tag=config
+```
+and setting up `replace_validation_messages` option to `false` on config/base64validation.php file, 
+and add localizations for rules in standard Laravel way.
+
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.MD) for more information.
