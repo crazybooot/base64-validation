@@ -9,7 +9,6 @@ use function config;
 use function config_path;
 use function implode;
 use function trans;
-use const __DIR__;
 
 /**
  * Class QueueStatsServiceProvider
