@@ -10,22 +10,30 @@
     "download",
     "laravel"
   ],
+  "license": "MIT",
   "authors": [
     {
       "name": "crazybooot",
       "email": "crazybooot@gmail.com"
     }
   ],
-  "license": "MIT",
-  "minimum-stability": "dev",
   "require": {
     "php": "^7.1",
     "laravel/framework": "^5.5|^6.0|^7.0|^8.0"
   },
+  "require-dev": {
+    "orchestra/testbench": "^3.8",
+    "squizlabs/php_codesniffer": "^3.5",
+    "intervention/image": "^2.5"
+  },
   "autoload": {
     "psr-4": {
-      "App\\": "app/",
-      "Crazybooot\\Base64Validation\\": "/src"
+      "Crazybooot\\Base64Validation\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
     }
   },
   "extra": {
