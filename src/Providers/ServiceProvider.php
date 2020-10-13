@@ -131,7 +131,8 @@ class ServiceProvider extends BaseServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../../config/base64validation.php', 'base64validation'
+            __DIR__.'/../../config/base64validation.php',
+            'base64validation'
         );
     }
 }

@@ -1,0 +1,11 @@
+
+version: '2'
+services:
+  app:
+    container_name: base64validation
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - ./:/var/www

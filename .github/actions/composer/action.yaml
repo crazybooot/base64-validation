@@ -1,0 +1,5 @@
+name: 'composer-install'
+description: 'composer install'
+runs: 
+   using: 'Docker'
+   image: 'Dockerfile'

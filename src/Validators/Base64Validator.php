@@ -22,7 +22,7 @@ use const true;
 class Base64Validator
 {
     use ValidatesAttributes;
-
+    
     /**
      * @param string    $attribute
      * @param mixed     $value
