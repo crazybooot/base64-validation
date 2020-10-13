@@ -1,5 +1,7 @@
 Laravel validators for base64 encoded files, includes versions of laravel files validation for base64 encoded files.
 
+<p><img src="https://github.com/tiagodevweb/base64-validation/workflows/Main/badge.svg"/></p>
+
 ## Requirements
 
 * PHP: 7.1+
@@ -46,6 +48,27 @@ php artisan vendor:publish --provider="Crazybooot\Base64Validation\Providers\Ser
 ```
 and setting up `replace_validation_messages` option to `false` on config/base64validation.php file, 
 and add localizations for rules in standard Laravel way.
+
+# Development environment
+
+### Requirements
+* [Docker](https://docs.docker.com/get-docker/)
+* [Docker Compose](https://docs.docker.com/compose/install/)
+
+### Usage
+```bash
+docker-compose exec app composer ...
+```
+### Style Code
+
+``` bash
+composer cs
+```
+### Testing
+
+``` bash
+composer test
+```
 
 ## License
 

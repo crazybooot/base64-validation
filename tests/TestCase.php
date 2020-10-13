@@ -41,7 +41,7 @@ class TestCase extends OrchestraTestCase
         );
     }
 
-    protected function convertToBase64(UploadedFile $file)
+    protected function convertToBase64(UploadedFile $file): string
     {
         return $this->resolveImageManager()->make($file)
             ->response('data-url')

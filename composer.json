@@ -36,6 +36,10 @@
       "Tests\\": "tests/"
     }
   },
+  "scripts": {
+    "test": "vendor/bin/phpunit",
+    "cs": "vendor/bin/phpcs"
+  },
   "extra": {
     "laravel": {
       "providers": [
