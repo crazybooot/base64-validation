@@ -10,7 +10,7 @@ class Base64MinTest extends TestCase
             static::ATTRIBUTE => 'base64min:435'
         ];
 
-        $image = $this->createImageFromFile();
+        $image = $this->createImageFromFile();//file has 434.66015625Kb
 
         $this->assertFalse($this->resoveValidator($image)->passes());
     }
@@ -21,7 +21,7 @@ class Base64MinTest extends TestCase
             static::ATTRIBUTE => 'base64min:434'
         ];
 
-        $image = $this->createImageFromFile();
+        $image = $this->createImageFromFile();//file has 434.66015625Kb
 
         $this->assertTrue($this->resoveValidator($image)->passes());
     }
@@ -32,7 +32,7 @@ class Base64MinTest extends TestCase
             static::ATTRIBUTE => 'base64min:433'
         ];
 
-        $image = $this->createImageFromFile();
+        $image = $this->createImageFromFile();//file has 434.66015625Kb
 
         $this->assertTrue($this->resoveValidator($image)->passes());
     }

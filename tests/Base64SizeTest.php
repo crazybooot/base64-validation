@@ -12,7 +12,7 @@ class Base64SizeTest extends TestCase
             static::ATTRIBUTE => 'base64size:1000'
         ];
 
-        $image = $this->createImageFromFile();
+        $image = $this->createImageFromFile();//file has 434.66015625Kb
 
         $this->assertFalse($this->resoveValidator($image)->passes());
     }
@@ -23,7 +23,7 @@ class Base64SizeTest extends TestCase
             static::ATTRIBUTE => 'base64size:434.66015625'
         ];
 
-        $image = $this->createImageFromFile();
+        $image = $this->createImageFromFile();//file has 434.66015625Kb
 
         $this->assertTrue($this->resoveValidator($image)->passes());
     }
