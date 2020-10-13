@@ -41,6 +41,34 @@ class TestCase extends OrchestraTestCase
         );
     }
 
+    protected function createImage(
+        string $filename = 'test.jpeg', 
+        int $width = 10, 
+        int $height = 10, 
+        int $size = null
+    ): string
+    {
+        $file = UploadedFile::fake()->image($filename, $width, $height);
+
+        if ($size) {
+            $file->size($size);
+        }
+
+        return $this->convertToBase64($file);
+    }
+
+    protected function createImageFromFile(string $path = __DIR__ . '/test.jpg'): string
+    {
+        $fileInfo = finfo_open(FILEINFO_MIME_TYPE);
+        $mime = finfo_file($fileInfo, $path);
+
+        $file = new UploadedFile(
+            $path, 'test', $mime, null, true
+        );
+
+        return $this->convertToBase64($file);
+    }
+
     protected function convertToBase64(UploadedFile $file): string
     {
         return $this->resolveImageManager()->make($file)
