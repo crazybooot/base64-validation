@@ -2,7 +2,7 @@ Laravel validators for base64 encoded files, includes versions of laravel files 
 
 ## Requirements
 
-* PHP: 7.1+
+* PHP: 7.1+/8.0+
 * Laravel: 5.5+/6+/7+/8+
 
 ## Install
