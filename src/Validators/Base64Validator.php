@@ -34,7 +34,7 @@ class Base64Validator
     public function validateBase64Max(string $attribute, $value, array $parameters, Validator $validator): bool
     {
         return !empty($value)
-            ? $validator->validateMax($attribute, $this->convertToFile($value), $parameters)
+            ? $validator->validateMax($attribute, static::convertToFile($value), $parameters)
             : true;
     }
 
@@ -49,7 +49,7 @@ class Base64Validator
     public function validateBase64Min(string $attribute, $value, array $parameters, Validator $validator): bool
     {
         return !empty($value)
-            ? $validator->validateMin($attribute, $this->convertToFile($value), $parameters)
+            ? $validator->validateMin($attribute, static::convertToFile($value), $parameters)
             : true;
     }
 
@@ -64,7 +64,7 @@ class Base64Validator
     public function validateBase64Dimensions(string $attribute, $value, array $parameters, Validator $validator): bool
     {
         return !empty($value)
-            ? $this->validateDimensions($attribute, $this->convertToFile($value), $parameters)
+            ? $this->validateDimensions($attribute, static::convertToFile($value), $parameters)
             : true;
     }
 
@@ -79,7 +79,7 @@ class Base64Validator
     public function validateBase64File(string $attribute, $value, array $parameters, Validator $validator): bool
     {
         return !empty($value)
-            ? $validator->validateFile($attribute, $this->convertToFile($value))
+            ? $validator->validateFile($attribute, static::convertToFile($value))
             : true;
     }
 
@@ -94,7 +94,7 @@ class Base64Validator
     public function validateBase64Image(string $attribute, $value, array $parameters, Validator $validator): bool
     {
         return !empty($value)
-            ? $validator->validateImage($attribute, $this->convertToFile($value))
+            ? $validator->validateImage($attribute, static::convertToFile($value))
             : true;
     }
 
@@ -109,7 +109,7 @@ class Base64Validator
     public function validateBase64Mimetypes(string $attribute, $value, array $parameters, Validator $validator): bool
     {
         return !empty($value)
-            ? $validator->validateMimetypes($attribute, $this->convertToFile($value), $parameters)
+            ? $validator->validateMimetypes($attribute, static::convertToFile($value), $parameters)
             : true;
     }
 
@@ -124,7 +124,7 @@ class Base64Validator
     public function validateBase64Mimes(string $attribute, $value, array $parameters, Validator $validator): bool
     {
         return !empty($value)
-            ? $validator->validateMimes($attribute, $this->convertToFile($value), $parameters)
+            ? $validator->validateMimes($attribute, static::convertToFile($value), $parameters)
             : true;
     }
 
@@ -139,7 +139,7 @@ class Base64Validator
     public function validateBase64Between(string $attribute, $value, array $parameters, Validator $validator): bool
     {
         return !empty($value)
-            ? $validator->validateBetween($attribute, $this->convertToFile($value), $parameters)
+            ? $validator->validateBetween($attribute, static::convertToFile($value), $parameters)
             : true;
     }
 
@@ -154,7 +154,7 @@ class Base64Validator
     public function validateBase64Size(string $attribute, $value, array $parameters, Validator $validator): bool
     {
         return !empty($value)
-            ? $validator->validateSize($attribute, $this->convertToFile($value), $parameters)
+            ? $validator->validateSize($attribute, static::convertToFile($value), $parameters)
             : true;
     }
 
@@ -163,7 +163,7 @@ class Base64Validator
      *
      * @return File
      */
-    protected function convertToFile(string $value): File
+    public static function convertToFile(string $value): File
     {
         if (strpos($value, ';base64') !== false) {
             [, $value] = explode(';', $value);
