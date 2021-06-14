@@ -70,51 +70,51 @@ class ServiceProvider extends BaseServiceProvider
         );
 
         if (config('base64validation.replace_validation_messages')) {
-            Validator::replacer('base64max', function ($message, $attribute, $rule, $parameters) {
-                return trans('validation.max.file', ['attribute' => $attribute, 'max' => $parameters[0]]);
+            Validator::replacer('base64max', function ($message, $attribute, $rule, $parameters, $validator) {
+                return trans('validation.max.file', ['attribute' => $validator->getDisplayableAttribute($attribute), 'max' => $parameters[0]]);
             });
 
-            Validator::replacer('base64min', function ($message, $attribute, $rule, $parameters) {
-                return trans('validation.min.file', ['attribute' => $attribute, 'min' => $parameters[0]]);
+            Validator::replacer('base64min', function ($message, $attribute, $rule, $parameters, $validator) {
+                return trans('validation.min.file', ['attribute' => $validator->getDisplayableAttribute($attribute), 'min' => $parameters[0]]);
             });
 
-            Validator::replacer('base64dimensions', function ($message, $attribute, $rule, $parameters) {
-                return trans('validation.dimensions', ['attribute' => $attribute]);
+            Validator::replacer('base64dimensions', function ($message, $attribute, $rule, $parameters, $validator) {
+                return trans('validation.dimensions', ['attribute' => $validator->getDisplayableAttribute($attribute)]);
             });
 
-            Validator::replacer('base64file', function ($message, $attribute, $rule, $parameters) {
-                return trans('validation.file', ['attribute' => $attribute]);
+            Validator::replacer('base64file', function ($message, $attribute, $rule, $parameters, $validator) {
+                return trans('validation.file', ['attribute' => $validator->getDisplayableAttribute($attribute)]);
             });
 
-            Validator::replacer('base64image', function ($message, $attribute, $rule, $parameters) {
-                return trans('validation.image', ['attribute' => $attribute]);
+            Validator::replacer('base64image', function ($message, $attribute, $rule, $parameters, $validator) {
+                return trans('validation.image', ['attribute' => $validator->getDisplayableAttribute($attribute)]);
             });
 
-            Validator::replacer('base64mimetypes', function ($message, $attribute, $rule, $parameters) {
+            Validator::replacer('base64mimetypes', function ($message, $attribute, $rule, $parameters, $validator) {
                 return trans('validation.mimetypes', [
-                    'attribute' => $attribute,
+                    'attribute' => $validator->getDisplayableAttribute($attribute),
                     'values'    => implode(',', $parameters)
                 ]);
             });
 
-            Validator::replacer('base64mimes', function ($message, $attribute, $rule, $parameters) {
+            Validator::replacer('base64mimes', function ($message, $attribute, $rule, $parameters, $validator) {
                 return trans('validation.mimes', [
-                    'attribute' => $attribute,
+                    'attribute' => $validator->getDisplayableAttribute($attribute),
                     'values'    => implode(',', $parameters),
                 ]);
             });
 
-            Validator::replacer('base64between', function ($message, $attribute, $rule, $parameters) {
+            Validator::replacer('base64between', function ($message, $attribute, $rule, $parameters, $validator) {
                 return trans('validation.between.file', [
-                    'attribute' => $attribute,
+                    'attribute' => $validator->getDisplayableAttribute($attribute),
                     'min'       => $parameters[0],
                     'max'       => $parameters[1]
                 ]);
             });
 
-            Validator::replacer('base64size', function ($message, $attribute, $rule, $parameters) {
+            Validator::replacer('base64size', function ($message, $attribute, $rule, $parameters, $validator) {
                 return trans('validation.size.file', [
-                    'attribute' => $attribute,
+                    'attribute' => $validator->getDisplayableAttribute($attribute),
                     'size'      => $parameters[0],
                 ]);
             });
