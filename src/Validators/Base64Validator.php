@@ -38,6 +38,7 @@ class Base64Validator
             : true;
     }
 
+    protected $descriptors = [];
     /**
      * @param string    $attribute
      * @param mixed     $value
@@ -171,10 +172,11 @@ class Base64Validator
         }
 
         $binaryData = base64_decode($value);
-        $tmpFile = tempnam(sys_get_temp_dir(), 'base64validator');
-        file_put_contents($tmpFile, $binaryData);
+        $tmpFile = tmpfile();
+        $this->descriptors[] = $tmpFile;
+        file_put_contents(stream_get_meta_data($tmpFile)['uri'], $binaryData);
 
-        return new File($tmpFile);
+        return new File(stream_get_meta_data($tmpFile)['uri']);
     }
 
     /**
