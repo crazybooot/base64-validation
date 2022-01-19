@@ -9,9 +9,9 @@ use Symfony\Component\HttpFoundation\File\File;
 use function base64_decode;
 use function explode;
 use function file_put_contents;
+use function stream_get_meta_data;
 use function strpos;
-use function sys_get_temp_dir;
-use function tempnam;
+use function tmpfile;
 use const true;
 
 /**
@@ -22,6 +22,8 @@ use const true;
 class Base64Validator
 {
     use ValidatesAttributes;
+
+    private $tmpFileDescriptor;
 
     /**
      * @param string    $attribute
@@ -171,10 +173,13 @@ class Base64Validator
         }
 
         $binaryData = base64_decode($value);
-        $tmpFile = tempnam(sys_get_temp_dir(), 'base64validator');
-        file_put_contents($tmpFile, $binaryData);
+        $tmpFile = tmpfile();
+        $this->tmpFileDescriptor = $tmpFile;
+        $tmpFilePath = stream_get_meta_data($tmpFile)['uri'];
 
-        return new File($tmpFile);
+        file_put_contents($tmpFilePath, $binaryData);
+
+        return new File($tmpFilePath);
     }
 
     /**
