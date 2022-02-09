@@ -2,8 +2,8 @@ Laravel validators for base64 encoded files, includes versions of laravel files 
 
 ## Requirements
 
-* PHP: 7.1+/8.0+
-* Laravel: 5.5+/6+/7+/8+
+* PHP: 8.0+
+* Laravel: 9+
 
 ## Install
 
@@ -44,7 +44,7 @@ by publishing config
 ```bash
 php artisan vendor:publish --provider="Crazybooot\Base64Validation\Providers\ServiceProvider" --tag=config
 ```
-and setting up `replace_validation_messages` option to `false` on config/base64validation.php file, 
+and setting up `replace_validation_messages` option to `false` on config/base64validation.php file,
 and add localizations for rules in standard Laravel way.
 
 ## License
