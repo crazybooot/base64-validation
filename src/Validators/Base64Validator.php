@@ -96,7 +96,7 @@ class Base64Validator
     public function validateBase64Image(string $attribute, $value, array $parameters, Validator $validator): bool
     {
         return !empty($value)
-            ? $validator->validateImage($attribute, $this->convertToFile($value))
+            ? $validator->validateImage($attribute, $this->convertToFile($value), $parameters)
             : true;
     }
 
